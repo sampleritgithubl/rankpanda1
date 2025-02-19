@@ -1,0 +1,925 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to right, #004d00, #006400);
+
+}
+
+/* Transparent Navigation Bar */
+.transparent-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+    z-index: 1000;
+}
+
+.transparent-nav.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #1239e8;
+}
+
+/* Hero Section */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Hero Content */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+/* Fix: Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #1239e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+
+
+
+
+/* Services Section */
+.services-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 50px 20px;
+    background: linear-gradient(to right, #000428, #004e92);
+    
+   
+
+}
+
+/* Ensure all service boxes have the same size */
+.service-box {
+    flex: 1;
+    width: 350px; /* Fixed width */
+    height: 400px; /* Fixed height for consistency */
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; /* Start hidden */
+    animation: fadeEffect 6s infinite;
+}
+
+/* Adjust image size for consistency */
+.service-box img {
+    width: 150px;
+    height: 150px; /* Ensure uniform size */
+    margin-bottom: 15px;
+}
+
+/* Animation for fade-in and fade-out effect */
+@keyframes fadeEffect {
+    0%, 100% { opacity: 0; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+/* Apply animation delay to each service box */
+.service-box:nth-child(1) {
+    animation-delay: 0s;
+}
+.service-box:nth-child(2) {
+    animation-delay: 2s;
+}
+.service-box:nth-child(3) {
+    animation-delay: 4s;
+}
+
+
+
+
+
+/* Hero Title with Zoom Effect */
+.hero-content h1 {
+    font-size: 2.8rem; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    text-transform: uppercase; /* Uppercase text */
+    color: white; /* Ensure visibility */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for better readability */
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards, zoomEffect 3s infinite alternate ease-in-out;
+}
+
+/* Zoom-in and Zoom-out Animation */
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+
+
+
+
+/* SEO Services Section */
+.seo-services {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(to bottom, #041532, #0f74d8);
+    /* background: linear-gradient(to right, #004d00, #006400); */
+
+    color: white;
+    background: url('images/bck.jpg') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Box Container */
+.seo-boxes {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    animation: moveBoxes 20s linear infinite; /* Increased duration for slower effect */
+}
+
+/* Individual Boxes */
+.seo-box {
+    background: rgba(12, 28, 151, 0.1);
+    border: 4px solid #070a4a;
+    padding: 25px;
+     
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(1, 19, 74, 0.5);
+    transition: transform 0.3s ease-in-out;
+    flex-shrink: 0; /* Prevents boxes from shrinking */
+}
+
+/* Hover Effect */
+.seo-box:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Button */
+.seo-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #0e309e;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* Button Hover Effect */
+.seo-btn:hover {
+    background: #174e6e;
+}
+
+/* Animation Keyframes */
+@keyframes moveBoxes {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Add spacing between h2 and p */
+.seo-title {
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+/* Add spacing after "Contact us today to get started" */
+.seo-subtitle strong {
+    display: block;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+/* Add spacing between SEO boxes */
+.seo-boxes {
+    gap: 50px; /* Adjust as needed */
+    margin-top: 30px; /* Adjust as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #000428, #004e92);
+    /* background: linear-gradient(to right, #0f2027, #2c7744, #11998e); */
+
+}
+
+/* SEO About Section */
+.seo-about {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, #000428, #004e92);
+   
+    /* background: linear-gradient(to right, #0a1f1c, #1e5731, #0b7a50, #38a169); */
+
+
+}
+
+/* Container */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+/* Image Gallery (Left Side) */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    flex: 1;
+}
+
+/* Image Box - Different Sizes */
+.image-item:nth-child(1) {
+    grid-column: span 2; /* Wider */
+    height: 250px;
+}
+
+.image-item:nth-child(2) {
+    height: 200px;
+}
+
+.image-item:nth-child(3) {
+    height: 300px;
+}
+
+.image-item:nth-child(4) {
+    height: 250px;
+}
+
+/* Common Image Styling */
+.image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+/* Popup Effect */
+.image-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Text Content (Right Side) */
+.seo-about-text {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.seo-about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #bbc1cb;
+}
+
+.seo-about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #bbc1cb;
+    margin-bottom: 20px;
+}
+
+/* Experience Counter */
+.experience-container {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.experience-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0400ff;
+}
+
+.label {
+    font-size: 1rem;
+    color: #3ea2ef;
+}
+
+/* "Read More" Button */
+.read-more-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #0f72a3;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.read-more-btn:hover {
+    background: #031658;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .seo-about-text {
+        text-align: center;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .image-item {
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+/* SEO Services Section */
+.seo-services1 {
+    
+    /* background: linear-gradient(to right, #000428, #004e92); */
+    background: linear-gradient(to right, #000428, #004179);
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Scrollable Container */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    gap: 150px;
+    scrollbar-width: none; /* Hide scrollbar */
+}
+
+/* Hide scrollbar for Webkit browsers */
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Service Box */
+.service-box1 {
+    background: rgba(15, 87, 176, 0.6); /* Semi-transparent */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    max-width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    flex-shrink: 0;
+}
+
+/* Hover Effect */
+.service-box1:hover {
+    transform: scale(1.05);
+    background: rgba(15, 87, 176, 0.8); /* More opacity on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Icons */
+.service-box1 img {
+    width: 60px;
+    margin-bottom: 15px;
+    align-self: center;
+}
+
+/* Heading */
+.service-box1 h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Description */
+.service-box1 p {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    min-height: 80px;
+}
+
+/* Learn More Button */
+.learn-more-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #0f72a3;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.learn-more-btn:hover {
+    background: #063b5c;
+}
+
+/* Arrow Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.scroll-btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+#left-btn {
+    left: 10px;
+}
+
+#right-btn {
+    right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .scroll-container {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Contact Section */
+.contact-section {
+    position: relative;
+    background: url('your-background-image.jpg') no-repeat center center/cover;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Contact Header */
+.contact-header {
+    font-size: 42px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+/* Container */
+.contact-section .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Contact Content */
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Map & Image Box */
+.map-image-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.map-image-box:hover {
+    transform: scale(1.02);
+}
+
+/* Map Container */
+.map-container {
+    width: 60%;
+    height: 250px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Image Container */
+.image-container {
+    width: 50%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Contact Box */
+.contact-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.contact-box:hover {
+    transform: scale(1.02);
+}
+
+/* Contact Info (Left Side) */
+.contact-info {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+    color: white;
+}
+
+/* Logo */
+.logo-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.logo-container img {
+    width: 120px;
+}
+
+/* Contact Form (Right Side) */
+.contact-form {
+    flex: 1;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Form Inputs */
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+/* Hover Effects */
+.contact-form input:hover, .contact-form textarea:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Send Button */
+.contact-form button {
+    background: #051766;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Button Hover */
+.contact-form button:hover {
+    background: #0f4c75;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .map-image-box {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .map-container, .image-container {
+        width: 100%;
+        height: 200px;
+    }
+
+    .contact-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+.footer {
+    background: linear-gradient(to right, #000428, #004179);
+    color: white;
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+}
+
+/* Logo and About */
+.footer-logo {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Footer Links */
+.footer-links,
+.footer-contact,
+.footer-social {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-links h3,
+.footer-contact h3,
+.footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #084489;
+}
+
+/* Contact Information */
+.footer-contact p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.footer-contact i {
+    margin-right: 8px;
+    color: #072f96;
+}
+
+/* Social Media */
+.footer-social .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social .social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    transition: 0.3s;
+    color: white;
+}
+
+.footer-social .social-icons a:hover {
+    background: #1c0d71;
+    color: black;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    background: black;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.footer-bottom span {
+    color: #200a7f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-social .social-icons {
+        justify-content: center;
+    }
+}
